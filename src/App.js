@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Dapp from "./Dapp";
+import { useContract } from "web3-hooks";
+import { SmartWordsAdress, SmartWordsAbi } from "./contracts/SmartWords";
+
+
+export const SmartWordsContext = React.createContext(null);
 
 function App() {
+  const smartWord = useContract(SmartWordsAdress, SmartWordsAbi);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SmartWordsContext.Provider value={smartWord}>
+      <Dapp />
+    </SmartWordsContext.Provider>
   );
 }
 

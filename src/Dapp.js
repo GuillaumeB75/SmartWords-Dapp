@@ -6,9 +6,9 @@ import { Box } from "@chakra-ui/react";
 
 const Dapp = () => {
   return (
-    <Container>
+    <Box>
 
-    </Container>
+    </Box>
   )
 }
 export default Dapp
